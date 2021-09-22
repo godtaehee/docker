@@ -385,4 +385,8 @@ Amazon Elastic Compute Cloud (Amazon EC2)는 Amazon Web Services(AWS) 클라우�
 
 > 한대의 컴퓨터를 임대한다고 생각하면 된다. 그리고 그 컴퓨터에 OS를 설치하고 웹서비스를 위한 프로그램들(웹서버, DB)을 설치해서 사용 하면 됩니다. 1대의 컴퓨터를 하나의 EC2 인스턴스라고 부릅니다.
 
- 
+ ### EB란 무엇인가? (Elastic BeanStalk)
+
+AWS Elastic Beanstalk은 Apache, Nginx같은 친숙한 서버에서 Java, NET, PHP, Node.js, Python, Ruby, Go 및 `Docker`와 함께 개발된 웹 응용 프로그램 및 서비스를 배포하고 확장하기 쉬운 서비스입니다. 아래서 보는 도표와 같이 Elastic Beanstalk은 EC2 인스턴스나 데이터베이스 같이 많은 것들을 포함한 "환경"을 구성하며 만들고 있는 소프트웨어를 업데이트 할때마다 자동으로 이 환경을 관리해줍니다.
+
+![Screen Shot 2021-09-23 at 1 04 28 AM](https://user-images.githubusercontent.com/44861205/134380356-b36dd805-7746-42a5-b3d5-f595c2a74ad1.png)
