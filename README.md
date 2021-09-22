@@ -292,3 +292,8 @@ Docker Container가 로컬의 파일들을 참조(Mapping)하여 변경사항을
 docker compose는 다중 컨테이너 도커 애플리케이션을 정의하고 실행하기 위한 도구 입니다.
 
 node.js와 redis-client가 있는 컨테이너와 redis-server가 있는 컨테이너가 쉽게 통신을 할 수 있게 해주는것이 docker compose입니다.
+
+docker-compose는 버전과 서비스를 필수적으로 명시해줘야한다.
+
+서비스는 컨테이너를 감싸는 부분이다.
+

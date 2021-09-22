@@ -7,19 +7,18 @@ const client = redis.createClient({
 });
 
 const port = 8080;
-const host = 'localhost';
 
 const app = express();
 client.set('number', 0);
 
 app.get('/', (req, res) => {
-  client("number", (err, number) => {
-    client.set("number", parseInt(number) + 1);
+  client.get("number", (err, number) => {
     res.send(number);
+    client.set("number", parseInt(number) + 1);
   });
 });
 
 
 app.listen(port, () => {
-  console.log('http://localhost:8080')
+  console.log('http://localhost:5000')
 })
