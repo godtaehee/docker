@@ -376,3 +376,13 @@ Travis CI가 중간에 껴서 Github에 푸시가된 코드를 빌드 및 테스
 Github Repository 기준으로 최상단에 .travis.yml 파일이 있어야한다.
 
 이 레포에 있는 docker-react-app폴더에 .travis.yml파일을 넣어줬더니 깃헙이 인식을 못해서 작동이 안된다. 따라서 [링크](https://github.com/godtaehee/docker-react-app) 에 따로 react-app을 두어서 Travis 관련된 테스트는 여기서 진행할 예정이다.
+
+## AWS 알아보기
+
+### EC2란 무엇인가? (Elastic Compute Cloud)
+
+Amazon Elastic Compute Cloud (Amazon EC2)는 Amazon Web Services(AWS) 클라우드에서 확장식 컴퓨팅을 제공합니다. Amazon EC2를 사용하면 하드웨어에 선투자할 필요가 없어 더 빠르게 애플리케이션을 개발하고 배포할 수 있습니다. Amazon EC2를 통해 원하는 만큼 가상 서버를 구축하고 보안 및 네트워크 구성과 스토리지 관리가 가능합니다. 또한 Amazon EC2는 요구 사항이나 갑작스러운 인기 증대 등 변동 사항에 따라 신속하게 규모를 확장하거나 축소할 수 있어 서버 트래픽 예측 필요성이 줄어듭니다.
+
+> 한대의 컴퓨터를 임대한다고 생각하면 된다. 그리고 그 컴퓨터에 OS를 설치하고 웹서비스를 위한 프로그램들(웹서버, DB)을 설치해서 사용 하면 됩니다. 1대의 컴퓨터를 하나의 EC2 인스턴스라고 부릅니다.
+
+ 
