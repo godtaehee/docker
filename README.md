@@ -372,3 +372,7 @@ Travis CI는 Github에서 진행되는 오픈소스 프로젝트를 위한 지�
 Github에 푸시가 됬으면 Travis CI에게 푸시가 되었다고 알려준다.
 
 Travis CI가 중간에 껴서 Github에 푸시가된 코드를 빌드 및 테스트를 거쳐 AWS에 또 뿌려준다.
+
+Github Repository 기준으로 최상단에 .travis.yml 파일이 있어야한다.
+
+이 레포에 있는 docker-react-app폴더에 .travis.yml파일을 넣어줬더니 깃헙이 인식을 못해서 작동이 안된다. 따라서 [링크](https://github.com/godtaehee/docker-react-app) 에 따로 react-app을 두어서 Travis 관련된 테스트는 여기서 진행할 예정이다.
