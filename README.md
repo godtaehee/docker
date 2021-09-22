@@ -265,3 +265,9 @@ CMD ["node", "server.js"]
 이렇게 하게되면 package.json만을 일단 COPY해오고 나서 npm i하게되면 package.json은 바뀐게 없으므로 `npm i`시 cache를 사용하여 종속성들을 다시한번 다운받게된다.
 
 이렇게 하여 소스코드만을 수정했을때 종속성들을 다시 처음부터 다 다운받는 비효율적인것을 해결해 주었습니다.
+
+### Docker Volume에 대하여..
+
+Docker Container가 로컬의 파일들을 참조(Mapping)하여 변경사항을 감지하여 로컬에 변경사항이 생기면 그것을 Container에 바로 반영을 해준다.
+
+`docker run -p 5000:8080 -v /usr/src/app/node_modules -v $(pwd):/usr/src/app <이미지 아이디>`
