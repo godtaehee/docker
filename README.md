@@ -297,3 +297,14 @@ docker-compose는 버전과 서비스를 필수적으로 명시해줘야한다.
 
 서비스는 컨테이너를 감싸는 부분이다.
 
+`docker-compose up --build`명령어를 통해 docker-compose.yml파일에 있는 컨테이너들을 한번에 실행시킬수 있으며 `docker-compose down` 으로 다시 셧다운 시킬수 있다.
+
+### docker-compose up VS docker-compose up --build
+
+docker-compose up은 이미지가 없을때 빌드하고 실행시키며
+
+docker-compose up --build는 이미지가 있든 없든 빌드를 하고 실행시킨다.
+
+소스코드 변경시 변경사항을 저장해줘야 하므로 docker-compose up --build를 사용하는 것이 좋다.
+
+`docker-compose up -d -build`하게되면 실행시킨후 바로 프롬프트를 띄워준다.
