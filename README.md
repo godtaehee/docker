@@ -218,3 +218,5 @@ CMD ["node", "server.js"]
 ex) 베이스 이미지에 이미 home이라는 폴더가 있는데 COPY명령어를 통해서 새로 추가 되는 폴더 중에 home이라는 폴더가 있다면 중복이 되므로 원래있던 폴더가 덮어 씌어져 버린다. 이건 참 큰일날 문제다.
 
 이러한 이유때문에 working directory가 따로 필요한것이다.
+
+> working directory를 설정하게 되면 shell을 통해 컨테이너를 실행할때 루트디렉토리(/)로 들어가는게 아니라 working directory로 설정해놓은 폴더로 바로 들어가게 된다.
