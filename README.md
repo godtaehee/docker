@@ -57,7 +57,22 @@ docker start -a를 해줘야 docker container의 output을 화면에 출력을 �
 
 ## Redis
 
-### Redis 실행과정
+### Redis란?
+
+Redis(REmote Dictionary Server)는 메모리 기반의 키-값 구조데이터 관리 시스템이며, 모든 데이터를 메모리에 저장하고 빠르게 조회할수 있는 비관계형 데이터베이스(NoSQL)이다.
+
+### Redis를 쓰는 이유?
+
+메모리에 저장하기 때문에 Mysql같은 데이터베이스에 데이터를 저장하는 것과 데이터를 불러올때 훨씬 빠르게 처리할수가 있으며, 비록 메모리에 저장하지만 영속적으로 보관이 가능하다. 그래서 서버를 재부팅해도 데이터를 유지할수 있는 장점이 있다.
+
+### Redis 실행과정 (Node.js)
+
+- 먼저 redis-server를 작동시켜주셔야 합니다.
+- 그리고 Redis 모듈을 다운받습니다.
+- 레디스 모듈을 받은 후 레디스 클라이언트를 생성하기 위해서 Redis에서 제공하는 createClient() 함수를 이용해서 redis.createClient로 레디스 클라이언트를 생성해준다.
+- 하지만 여기서 redis server가 작동하는 곳과 Node.js앱이 작동하는곳이 다른 곳이라면 host와 port 인자를 명시해주어야한다.
+
+### Redis 실행과정 (Docker)
 
 레디스(redis) 서버 작동 → 레디스 클라이언트(redis-cli)실행 → 레디스 클라이언트에게 명령어를 입력하여 레디스 서버에 전달
 
@@ -271,3 +286,8 @@ CMD ["node", "server.js"]
 Docker Container가 로컬의 파일들을 참조(Mapping)하여 변경사항을 감지하여 로컬에 변경사항이 생기면 그것을 Container에 바로 반영을 해준다.
 
 `docker run -p 5000:8080 -v /usr/src/app/node_modules -v $(pwd):/usr/src/app <이미지 아이디>`
+
+## Docker Compose란 무엇인가?
+
+docker compose는 다중 컨테이너 도커 애플리케이션을 정의하고 실행하기 위한 도구 입니다.
+
