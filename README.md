@@ -115,6 +115,7 @@ Dockerfile이란 Docker Image를 만들기 위한 설정 파일이며 컨테이�
 ## Dockerfile 실제로 만들기
 
 파일 이름은 Dockerfile이여야만 함
+나중에 더 개발환경만을 위한 Dockerfile을 만들고 싶다면 Dockerfile.dev를 사용해야한다.
 
 ```dockerfile
 # 베이스 이름을 명시해준다.
