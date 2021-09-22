@@ -360,3 +360,7 @@ services:
 첫번째로 DockerImage를 만들기 위한 Builder과정을 거치고난후
 
 두분째로 Nginx에서 builder과정의 결과물로 나온 build파일을 사용자의 요청에 맞게 정적파일을 제공해줄수 있게 해준다.
+
+## Travis CI란?
+
+Travis CI는 Github에서 진행되는 오픈소스 프로젝트를 위한 지속적인 통합(Continuous Integration)서비스이다. 2011년에 설립되어 2012년에 급 성장하였으며 Ruby언어만 지원하였지만 현재 대부분의 개발 언어를 지원하고 있다. Travis CI를 이용하면 Github Repository에 있는 프로젝트를 특정 이벤트에 따라 자동으로 테스트, 빌드하거나 배포할수 있다. Private Repository는 유료로 일정 금액을 지불하고 사용할 수 있다.
