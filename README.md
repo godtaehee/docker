@@ -317,3 +317,31 @@ Dockerfile.dev를 이미지를 빌드할때 쓰일 Dockerfile로서 사용하기
 `docker build -f Dockerfile.dev .`
 
 Docker 환경에서 Node.js이든 React든 사용하려면 node_modules폴더는 로컬에 없는게 더 좋다 왜냐하면 Dockerfile에서 COPY명령어를 통해서 로컬에 있는 모든 폴더 파일들을 다 COPY하는데 이렇게 되면 node_modules도 복사하게 된다는것인데 node_modules폴더는 용량이 꽤 크기때문에 이것을 COPY하는데 시간도 오래걸리고 또한 package.json만 있으면 npm i 명령어로 다 설치가 가능하니까 local엔 node_modules 폴더가 없는게 좋다.
+
+
+## docker-compose로 Test 자동화
+
+```dockerfile
+version: "3"
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+    stdin_open: true
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+    command: ["npm", "run", "test"]
+```
+
+이건 정말 나한테 필요한 자동화인거같다 오늘 아주 뿌듯한 수확을 거두었다..
