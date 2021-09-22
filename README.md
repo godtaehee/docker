@@ -142,3 +142,54 @@ build 명령어는 해당 디렉토리 내에서 `Dockerfile`이라는 파일을
 이렇게 빌드를 하게되면 이름을 가지고 빌드를 할수 있게된다.
 
 t는 tag의 약자이다.
+
+### Node.js 애플리케이션 Docker로 실행하기
+
+Nodejs 애플리케이션이 있는 디렉토리를 기준으로 Dockerfile을 생성한다.
+
+생성한 Dockerfile의 내용은 다음과 같다.
+
+```dockerfile
+FROM node:10
+
+RUN npm i
+
+CMD ["node", "server.js"]
+```
+
+이건 오류가 난다. 왜냐하면 node:10이라는 이미지에는 내가 만든 Node.js의 Application의 package.json과 Entry file인 Server.js가 없기 때문이다.
+
+package.json파일이 없는데 npm i 하면 당연히 오류가 난다.
+
+그래서 바꿔준게
+
+```dockerfile
+FROM node:10
+
+COPY package.json ./
+
+RUN npm i
+
+CMD ["node", "server.js"]
+```
+
+이것도 오류가 난다. 오류를 설명하기 이전에 COPY라는 명령어가 있는데
+
+이 명령어는 현재 Dockerfile이 있는 디렉토리 기준으로 package.json파일을 찾아 DockerImage내의 하드디스크 루트폴더로 복사를 해준다.
+
+그렇게 하게되면 내가 만든 Node.js Application의 package.json파일이 DockerImage에도 존재하게 되므로 npm i 명령을 실행할수 있게된다. 하지만 server.js는 없기때문에 node server.js라는 명령어를 실행할수 없다.
+
+```dockerfile
+FROM node:10
+
+COPY ./ ./
+
+RUN npm i
+
+CMD ["node", "server.js"]
+```
+
+최종본은 이것인데 그냥 Dockerfile이 있는 디렉토리 기준에 있는 모든 파일을 DockerImage 하드디스크의 루트 디렉토리에 복사하는것이다.
+
+이렇게 되면 package.json, server.js가 모두 DockerImage내에 존재하게 되므로 Node.js Application을 정상적으로 실행할수 있게된다. 하지만 여기서 실제 간단한 GET API를 호출해보면 실행되지 않는다.
+
