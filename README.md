@@ -193,3 +193,15 @@ CMD ["node", "server.js"]
 
 이렇게 되면 package.json, server.js가 모두 DockerImage내에 존재하게 되므로 Node.js Application을 정상적으로 실행할수 있게된다. 하지만 여기서 실제 간단한 GET API를 호출해보면 실행되지 않는다.
 
+이유는 컨테이너 내부에있는 네트워크와 우리가 사용하고있는 실제 우리 컴퓨터의 네트워크의 매칭이 되어있지가 않아서인데 다음과 같은 명령어로 네트워크를 매칭시켜서 컨테이너로 실행한 Node.js Application의 API를 이용할수 있다.
+
+`docker run -p <내컴퓨터에서사용할 포트번호>:<Docker Container에서 실행되는 애플리케이션의 포트번호> <이미지 이름>`
+
+예를들어 우리가 앞서 만든 Node.js Application이 사용하는 port는 `8080`이였는데 Docker에서 돌아가는 애플리케이션의 포트와는 상관없이 내 컴퓨터에서 사용할 포트번호를 8080이 아닌 다른것으로도 매칭을 시켜 사용할수 있다. 무슨말이냐면
+
+`docker run -p 5000:8080 some-docker-image`
+
+이 명령어는 `some-docker-image`라는 이미지 안에 있는 애플리케이션의 네트워크 포트번호 8080을 내 컴퓨터에서는 5000번으로 사용을 하여 실행시키겠다 라는 말이다.
+
+즉 로컬에서 간단하게 앱을 돌린다고 가정할때 `http://localhost:5000`으로 접속하면 docker에서 실행되고있는 앱의 API를 이용할수 있게된다.
+
