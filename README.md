@@ -357,4 +357,6 @@ services:
 
 ## 운영환경을 위한 도커파일
 
+첫번째로 DockerImage를 만들기 위한 Builder과정을 거치고난후
 
+두분째로 Nginx에서 builder과정의 결과물로 나온 build파일을 사용자의 요청에 맞게 정적파일을 제공해줄수 있게 해준다.
