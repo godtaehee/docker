@@ -406,3 +406,21 @@ Amazon Virtual Private Cloud(VPC)를 사용하면 AWS 클라우드에서 논리�
 ElasticBeanstalk 인스턴스나 RDS를 생성하면 자동적으로 기본 VPC(default VPC)가 할당이 됩니다. 그리고 할당이 될때는 지역(region)별로 다르게 할당이 됩니다.
 
 **기본적으로 EB 인스턴스와 RDS는 서로 통신할수 없다.**
+
+## Security Group(보안 그룹)이란?
+
+EC2인스턴스나 EB 인스턴스 등등에서 Security Group(방화벽)을 통해서 외부로 OUTBOUND 및 INBOUND를 하게된다.
+
+### INBOUND란?
+
+외부에서 EC2인스턴스나 EB 인스턴스로 요청을 보내는 트래픽입니다. HTTP, HTTPS, SSH 등이 있습니다.
+
+### OUTBOUND란?
+
+EC2 인스턴스나 EB인스턴스등에서 외부로 나가는 트래픽입니다.
+
+파일을 다운로드 하거나 Inbound로 들어온 트래픽을 처리하여 응답하는 경우도 포함 됩니다.
+
+결론적으로는 Security Group이 Inbound와 Outbound를 통제해서 트래픽을 열어줄수도 있고 닫아 줄수도 있습니다.
+
+그래서 EB와 RDS를 어떻게 연결시킬것인지에 대해서 말을하면 같은 VPC내에 있는 인스턴스에 한해서만 Security Group을 통해 들어오는 Inbound, Outbound를 허용해주면 된다.
