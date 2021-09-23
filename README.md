@@ -390,3 +390,11 @@ Amazon Elastic Compute Cloud (Amazon EC2)는 Amazon Web Services(AWS) 클라우�
 AWS Elastic Beanstalk은 Apache, Nginx같은 친숙한 서버에서 Java, NET, PHP, Node.js, Python, Ruby, Go 및 `Docker`와 함께 개발된 웹 응용 프로그램 및 서비스를 배포하고 확장하기 쉬운 서비스입니다. 아래서 보는 도표와 같이 Elastic Beanstalk은 EC2 인스턴스나 데이터베이스 같이 많은 것들을 포함한 "환경"을 구성하며 만들고 있는 소프트웨어를 업데이트 할때마다 자동으로 이 환경을 관리해줍니다.
 
 ![Screen Shot 2021-09-23 at 1 04 28 AM](https://user-images.githubusercontent.com/44861205/134380356-b36dd805-7746-42a5-b3d5-f595c2a74ad1.png)
+
+## Dockerrun.aws.json이란?
+
+`Dockerrun.aws.json` 파일은 Docker 컨테이너 세트를 Elastic Beanstalk 애플리케이션으로 배포하는 방법을 설명하는 Elastic Beanstalk 고유의 JSON 파일입니다. `Dockerrun.aws.json`파일을 멀티컨테이너 Docker 환경에 사용할 수 있습니다.
+
+`Dockerrun.aws.json`은 환경에서 각 컨테이너 인스턴스(Docker 컨테이너를 호스트하는 Amazon EC2 인스턴스)에 배포할 컨테이너 및 탑재할 컨테이너의 호스트 인스턴스에서 생성할 데이터 볼륨을 설명합니다.
+
+
